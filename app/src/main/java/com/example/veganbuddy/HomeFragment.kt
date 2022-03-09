@@ -1,5 +1,6 @@
 package com.example.veganbuddy
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -55,8 +56,10 @@ class HomeFragment : Fragment() {
         })
 
         binding.srch.setOnClickListener {
-            val value = binding.postalcode.text
-            Toast.makeText(context, "Postal code : $value", Toast.LENGTH_SHORT).show()
+            //val value = binding.postalcode.text
+            val intent = Intent(this@HomeFragment.requireContext(),MapsActivity::class.java)
+            startActivity(intent)
+            //Toast.makeText(context, "Postal code : $value", Toast.LENGTH_SHORT).show()
         }
 
         return root

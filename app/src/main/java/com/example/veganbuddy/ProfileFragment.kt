@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import com.example.veganbuddy.databinding.FragmentHomeBinding
 import com.example.veganbuddy.databinding.FragmentProfileBinding
 
@@ -27,6 +28,7 @@ import com.example.veganbuddy.databinding.FragmentProfileBinding
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
+    private val viewModel by viewModels<UserDbOperations>()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -41,13 +43,22 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        viewModel.user.observe(viewLifecycleOwner){
+            binding.fName.setText(it?.firstName ?: "")
+            binding.lName.setText(it?.lastName ?: "")
+
+        }
+        binding.profileSave.setOnClickListener {
+            viewModel.onSubmit(binding.fName.text.toString(),binding.lName.text.toString())
+        }
+
         binding.profileImage.setOnClickListener {
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Select Image")
             builder.setMessage("Chosse Your Option")
             builder.setPositiveButton("Gallery", { dialog, which ->
                 dialog.dismiss()
-
                 val intent = Intent(Intent.ACTION_PICK)
                 intent.type = "image/*"
                 startActivityForResult(intent, REQUEST_IMAGE_GALLERY)
@@ -55,10 +66,10 @@ class ProfileFragment : Fragment() {
             builder.setNegativeButton("Camera", { dialog, which ->
                 dialog.dismiss()
                 Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-                    takePictureIntent.resolveActivity(packageManager)?.also {
-                        val permission: Int = ContextCompat.checkSelfPermission(getActivity().,android.Manifest.permission.CAMERA)
+                    takePictureIntent.resolveActivity(requireActivity().packageManager)?.also {
+                        val permission: Int = ContextCompat.checkSelfPermission(requireActivity(),android.Manifest.permission.CAMERA)
                         if (permission != PackageManager.PERMISSION_GRANTED){
-                            ActivityCompat.requestPermissions(context, arrayOf(android.Manifest.permission.CAMERA),1)
+                            ActivityCompat.requestPermissions(this.requireActivity(), arrayOf(android.Manifest.permission.CAMERA),1)
                         }
                         else{
                             startActivityForResult(takePictureIntent,REQUEST_IMAGE_CAMERA)
@@ -68,7 +79,6 @@ class ProfileFragment : Fragment() {
             })
             val dialog: AlertDialog = builder.create()
             dialog.show()
-
         }
         return root
     }
@@ -82,7 +92,8 @@ class ProfileFragment : Fragment() {
             binding.profileImage.setImageBitmap(data.extras?.get("data")as Bitmap)
         }
         else {
-            Toast.makeText(context, "Something went Wrong", Toast.LENGTH_LONG).show()
+            binding.profileImage.setImageResource(R.drawable.account)
+            //Toast.makeText(context, "Something went Wrong", Toast.LENGTH_LONG).show()
         }
     }
 

@@ -1,6 +1,7 @@
 package com.example.veganbuddy
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
@@ -43,6 +44,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         mapFragment.getMapAsync(this)
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+
+        binding.fltBtn.setOnClickListener {
+            val intent = Intent(this,RestaurantActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

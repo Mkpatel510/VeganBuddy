@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.362962962962963" />
         <entry key="app/src/main/res/drawable-v24/headercolor.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/custom_image_background.xml" value="0.147" />
         <entry key="app/src/main/res/drawable/custom_input.xml" value="0.189" />
@@ -13,6 +14,9 @@
         <entry key="app/src/main/res/drawable/toolbarcolor.xml" value="0.189" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_restaurant.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/activity_ride_details.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19610507246376813" />

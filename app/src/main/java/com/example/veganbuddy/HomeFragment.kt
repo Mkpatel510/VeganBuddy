@@ -57,8 +57,10 @@ class HomeFragment : Fragment() {
 
         binding.srch.setOnClickListener {
             //val value = binding.postalcode.text
-            val intent = Intent(this@HomeFragment.requireContext(),MapsActivity::class.java)
+             val intent = Intent(this@HomeFragment.requireContext(),RideDetailsActivity::class.java)
             startActivity(intent)
+//            val intent = Intent(this@HomeFragment.requireContext(),MapsActivity::class.java)
+//            startActivity(intent)
             //Toast.makeText(context, "Postal code : $value", Toast.LENGTH_SHORT).show()
         }
 

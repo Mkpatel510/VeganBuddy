@@ -14,7 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VeganBuddy">
-
+        <activity
+            android:name=".RestaurantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RideDetailsActivity"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

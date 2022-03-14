@@ -13,6 +13,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.veganbuddy.databinding.FragmentHomeBinding
+import org.bson.types.Code
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -31,6 +32,8 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+
 
         fun useRegex(input: String): Boolean{
             var p: Pattern = Pattern.compile("[A-Za-z][0-9][A-Za-z][0-9][A-Za-z][0-9]")
@@ -57,8 +60,11 @@ class HomeFragment : Fragment() {
 
         binding.srch.setOnClickListener {
             //val value = binding.postalcode.text
+
+            var code = binding.postalcode.text.toString()
              val intent = Intent(this@HomeFragment.requireContext(),RideDetailsActivity::class.java)
-            startActivity(intent)
+             intent.putExtra("CODE",code)
+             startActivity(intent)
 //            val intent = Intent(this@HomeFragment.requireContext(),MapsActivity::class.java)
 //            startActivity(intent)
             //Toast.makeText(context, "Postal code : $value", Toast.LENGTH_SHORT).show()

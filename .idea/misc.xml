@@ -15,13 +15,14 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_restaurant.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_restaurant.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_ride_details.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/fragment_payment.xml" value="0.2269021739130435" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/list_item_recipe.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.11684782608695653" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.28229166666666666" />
       </map>
